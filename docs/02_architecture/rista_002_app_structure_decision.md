@@ -116,6 +116,6 @@ The preferred direction is separate platform app surfaces sharing the same core,
 
 CC BY-NC-ND 4.0
 
-Initial publication: __DATE__
+Initial publication: 2026-06-23
 
-Last modified: __DATE__
+Last modified: 2026-06-23
