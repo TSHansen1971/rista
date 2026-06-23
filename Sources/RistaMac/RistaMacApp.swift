@@ -2,6 +2,18 @@ import AppKit
 import RistaCore
 import SwiftUI
 
+
+private enum RistaMacApplicationIcon {
+    static func install() {
+        guard let iconURL = Bundle.module.url(forResource: "RistaAppIcon", withExtension: "icns"),
+              let iconImage = NSImage(contentsOf: iconURL) else {
+            return
+        }
+
+        NSApp.applicationIconImage = iconImage
+    }
+}
+
 @main
 struct RistaMacApplication: App {
     @NSApplicationDelegateAdaptor(RistaMacApplicationDelegate.self) private var appDelegate
@@ -24,6 +36,7 @@ private final class RistaMacApplicationDelegate: NSObject, NSApplicationDelegate
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        RistaMacApplicationIcon.install()
         DispatchQueue.main.async {
             NSRunningApplication.current.activate(options: [.activateAllWindows])
 

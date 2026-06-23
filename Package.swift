@@ -17,8 +17,9 @@ let package = Package(
         ),
         .executableTarget(
             name: "RistaMac",
-            dependencies: ["RistaCore"]
-        ),
+            dependencies: ["RistaCore"],
+        
+            resources: [.process("Resources")]),
         .testTarget(
             name: "RistaCoreTests",
             dependencies: ["RistaCore"]
