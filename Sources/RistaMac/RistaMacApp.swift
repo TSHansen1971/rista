@@ -108,13 +108,54 @@ private final class RistaMacApplicationDelegate: NSObject, NSApplicationDelegate
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         RistaMacApplicationIcon.install()
-        DispatchQueue.main.async {
-            NSRunningApplication.current.activate(options: [.activateAllWindows])
+        scheduleWindowLifecycleNormalization()
+    }
 
-            for window in NSApp.windows {
-                window.makeKeyAndOrderFront(nil)
+    private func scheduleWindowLifecycleNormalization() {
+        let delays: [DispatchTimeInterval] = [
+            .milliseconds(0),
+            .milliseconds(150),
+            .milliseconds(350),
+            .milliseconds(750),
+        ]
+
+        for delay in delays {
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
+                self?.activateAndNormalizeWindows()
             }
         }
+    }
+
+    private func activateAndNormalizeWindows() {
+        NSRunningApplication.current.activate(options: [.activateAllWindows])
+        closeRedundantUntitledWindowsIfNeeded()
+
+        for window in NSApp.windows where window.isVisible {
+            window.makeKeyAndOrderFront(nil)
+        }
+    }
+
+    private func closeRedundantUntitledWindowsIfNeeded() {
+        let visibleDocumentWindows = NSApp.windows.filter { window in
+            window.isVisible && !isUntitledWindow(window) && !isPanelOrMenuWindow(window)
+        }
+
+        guard !visibleDocumentWindows.isEmpty else {
+            return
+        }
+
+        for window in NSApp.windows where window.isVisible && isUntitledWindow(window) && !window.isDocumentEdited {
+            window.close()
+        }
+    }
+
+    private func isUntitledWindow(_ window: NSWindow) -> Bool {
+        let title = window.title.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        return title == "untitled" || title.hasPrefix("untitled ")
+    }
+
+    private func isPanelOrMenuWindow(_ window: NSWindow) -> Bool {
+        window is NSPanel || window.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
