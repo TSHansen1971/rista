@@ -17,9 +17,11 @@ struct MarkdownTextView: NSViewRepresentable {
         scrollView.drawsBackground = true
         scrollView.backgroundColor = .textBackgroundColor
 
-        let textView = NSTextView()
+        let textView = RistaMarkdownTextView()
         textView.delegate = context.coordinator
         textView.string = text
+        textView.isEditable = true
+        textView.isSelectable = true
         textView.isRichText = false
         textView.isAutomaticQuoteSubstitutionEnabled = false
         textView.isAutomaticDashSubstitutionEnabled = false
@@ -46,8 +48,11 @@ struct MarkdownTextView: NSViewRepresentable {
 
     func updateNSView(_ scrollView: NSScrollView, context: Context) {
         guard let textView = scrollView.documentView as? NSTextView else { return }
+
         if textView.string != text {
+            let selectedRanges = textView.selectedRanges
             textView.string = text
+            textView.selectedRanges = selectedRanges
         }
     }
 
@@ -61,6 +66,24 @@ struct MarkdownTextView: NSViewRepresentable {
         func textDidChange(_ notification: Notification) {
             guard let textView = notification.object as? NSTextView else { return }
             text.wrappedValue = textView.string
+        }
+    }
+}
+
+private final class RistaMarkdownTextView: NSTextView {
+    override var acceptsFirstResponder: Bool {
+        true
+    }
+
+    override func viewDidMoveToWindow() {
+        super.viewDidMoveToWindow()
+
+        DispatchQueue.main.async { [weak self] in
+            guard let self, let window else { return }
+
+            NSRunningApplication.current.activate(options: [.activateAllWindows])
+            window.makeKeyAndOrderFront(nil)
+            window.makeFirstResponder(self)
         }
     }
 }
