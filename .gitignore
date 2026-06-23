@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# Xcode / SwiftPM
+.build/
+.swiftpm/
+DerivedData/
+*.xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Local editor state
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and generated reports
+*.log
+reports/*.tmp
+reports/*.local.md
+
+# Keep empty directories
+!.gitkeep
