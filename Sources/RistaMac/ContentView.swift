@@ -1,16 +1,52 @@
 import RistaCore
 import SwiftUI
 
+@MainActor
 struct ContentView: View {
     @Binding var document: RistaDocument
+    @State private var editorModel: RistaMacEditorModel
+    @State private var editorRevision: Int = 0
+
+    init(document: Binding<RistaDocument>) {
+        self._document = document
+        self._editorModel = State(
+            initialValue: RistaMacEditorModel(markdownText: document.wrappedValue.text)
+        )
+    }
+
+    private var editorText: Binding<String> {
+        Binding(
+            get: {
+                editorModel.text
+            },
+            set: { newText in
+                let changed = editorModel.replaceText(with: newText)
+
+                if changed || document.text != newText {
+                    document.text = newText
+                    editorRevision = editorModel.revision
+                }
+            }
+        )
+    }
 
     var body: some View {
+        let _ = editorRevision
+
         VStack(spacing: 0) {
             HeaderView()
 
             Divider()
 
-            EditorPreviewSplitView(text: $document.text)
+            EditorPreviewSplitView(text: editorText)
+                .onChange(of: document.text) { _, newText in
+                    guard editorModel.text != newText else {
+                        return
+                    }
+
+                    editorModel.replaceSession(markdownText: newText)
+                    editorRevision = editorModel.revision
+                }
         }
         .frame(minWidth: 900, minHeight: 560)
     }
