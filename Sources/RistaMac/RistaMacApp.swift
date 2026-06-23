@@ -14,6 +14,24 @@ private enum RistaMacApplicationIcon {
     }
 }
 
+
+private enum RistaMacAboutPanel {
+    static func show() {
+        var options: [NSApplication.AboutPanelOptionKey: Any] = [
+            .applicationName: "Rísta",
+            .credits: NSAttributedString(string: "Merk språk, ren tekst, ingen friksjon.")
+        ]
+
+        if let iconURL = Bundle.module.url(forResource: "RistaAppIcon", withExtension: "icns"),
+           let iconImage = NSImage(contentsOf: iconURL) {
+            NSApp.applicationIconImage = iconImage
+            options[.applicationIcon] = iconImage
+        }
+
+        NSApp.orderFrontStandardAboutPanel(options: options)
+    }
+}
+
 @main
 struct RistaMacApplication: App {
     @NSApplicationDelegateAdaptor(RistaMacApplicationDelegate.self) private var appDelegate
@@ -23,6 +41,13 @@ struct RistaMacApplication: App {
             ContentView(document: file.$document)
         }
         .commands {
+            CommandGroup(replacing: .appInfo) {
+                Button("About Rísta") {
+                    RistaMacAboutPanel.show()
+                }
+            }
+
+
             SidebarCommands()
             TextEditingCommands()
             TextFormattingCommands()
