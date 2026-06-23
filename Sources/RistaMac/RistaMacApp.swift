@@ -68,7 +68,12 @@ private enum RistaMacAboutPanel {
             options[.applicationIcon] = iconImage
         }
 
-        NSApp.orderFrontStandardAboutPanel(options: options)
+        var ristaAboutOptions = options
+        if RistaActiveBundleAboutMetadata.isPresent {
+            ristaAboutOptions.removeValue(forKey: .applicationVersion)
+            ristaAboutOptions.removeValue(forKey: .credits)
+        }
+        NSApplication.shared.orderFrontStandardAboutPanel(options: ristaAboutOptions)
     }
 }
 
@@ -124,3 +129,18 @@ private final class RistaMacApplicationDelegate: NSObject, NSApplicationDelegate
         return true
     }
 }
+
+private enum RistaActiveBundleAboutMetadata {
+    static var isPresent: Bool {
+        guard Bundle.main.bundleURL.pathExtension == "app" else {
+            return false
+        }
+
+        let hasShortVersion = !(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "").isEmpty
+        let hasBuildVersion = !(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "").isEmpty
+        let hasCopyright = !(Bundle.main.object(forInfoDictionaryKey: "NSHumanReadableCopyright") as? String ?? "").isEmpty
+
+        return hasShortVersion && hasBuildVersion && hasCopyright
+    }
+}
+
