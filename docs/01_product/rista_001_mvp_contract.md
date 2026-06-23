@@ -1,26 +1,59 @@
-# RÍSTA-001 – MVP-kontrakt
+# RISTA-001 – MVP Contract
 
-## Første produktmål
+## First product goal
 
-Første MVP skal gjøre én ting godt: redigere en markdown-fil og vise en formatert forhåndsvisning side om side.
+The first MVP shall do one thing well: edit a Markdown file and show a rendered preview side by side.
 
-## Minimumsfunksjoner
+## Minimum functions
 
-- ny markdown-fil
-- åpne eksisterende `.md`- eller tekstfil
-- lagre som vanlig tekstfil
-- skriveflate med monospaced font
-- live preview med enkel blokkstruktur
-- tastaturvennlig arbeidsflyt
+- create a new Markdown document
+- open an existing `.md` or plain text file
+- save as an ordinary text file
+- provide a monospaced writing surface
+- provide live preview with basic block structure
+- keep the workflow keyboard-friendly
+- keep the document format open and portable
 
-## Senere, ikke nå
+## First rendering scope
 
-- PDF-eksport
-- HTML-eksport
-- flere temaer
-- syntaksmarkering
-- linjenummer
+The first preview scope is deliberately modest:
+
+- headings
+- paragraphs
+- emphasis
+- unordered lists
+- ordered lists
+- block quotes
+- code blocks
+- inline code
+- horizontal rules
+
+## Later, not now
+
+These are later product decisions, not first-MVP requirements:
+
+- PDF export
+- HTML export
+- multiple themes
+- syntax highlighting
+- line numbers
 - typewriter mode
-- App Store-metadata
-- appikon
-- sandbox-/notariseringsløp
+- App Store metadata
+- custom app icon
+- sandbox and notarization workflow
+- full CommonMark compliance
+- advanced typography
+
+## Excluded from MVP
+
+The MVP shall not include accounts, cloud sync, AI, proprietary storage, analytics, telemetry or online service dependency.
+
+---
+
+© Tor-Ståle Hansen, https://github.com/TSHansen1971/rista
+
+CC BY-NC-ND 4.0
+
+Initial publication: 2026-06-23
+
+Last modified: 2026-06-23

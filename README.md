@@ -1,74 +1,67 @@
 # ᚼ Rísta
 
-Rísta er et macOS-native startprosjekt for en ren markdown-editor: skriv i ren tekst, se dokumentet formatert fortløpende, og behold dokumentene som åpne `.md`-filer.
+Rísta is an Apple Silicon-native macOS Markdown editor starter: write in plain text, see the document rendered live, and keep your work as ordinary open `.md` files.
 
-Dette repoet er laget som et nøkternt lokalt utviklingsgrunnlag. Det kopierer ikke kode, ikon, tekst, skjermbilder eller andre eiendeler fra Markdown Pro. Det bevarer bare arbeidsideen: tastaturdrevet markdown med side-ved-side forhåndsvisning.
+The project is built around one principle: minimal distance between thought and text. Markdown is not treated as a toolbar-driven formatting layer, but as a direct writing method where small marks create visible structure.
 
-## MVP-kontrakt
+This repository is a clean-room local development foundation. It does not copy code, icons, text, screenshots, layout details or other assets from Markdown Pro. It preserves only the general and widely used workflow pattern: keyboard-driven Markdown editing with side-by-side live preview.
 
-Første versjon skal være smal:
+## Product position
 
-- åpne, redigere og lagre vanlige `.md`- og tekstfiler
-- skriveflate til venstre og live forhåndsvisning til høyre
-- enkel markdown-rendering for overskrifter, avsnitt, lister, sitater, kodeblokker og horisontal strek
-- ingen konto, ingen database, ingen synk-tjeneste, ingen AI og ingen proprietært dokumentformat
+Apple Silicon-native macOS Markdown editor: plain text, live preview, PDF/HTML export.
 
-## Lokal utvikling
+## MVP contract
 
-Åpne prosjektet direkte i Xcode:
+The first version is intentionally narrow:
+
+- open, edit and save ordinary `.md` and plain text files
+- editor on the left, live preview on the right
+- basic Markdown rendering for headings, paragraphs, emphasis, lists, block quotes, code blocks and horizontal rules
+- local document ownership
+- no account
+- no database
+- no cloud sync
+- no AI layer
+- no proprietary document format
+
+## Local development
+
+Open the package directly in Xcode:
 
 ```zsh
 cd ~/prosjekter/rista
 open Package.swift
 ```
 
-Eller bygg og test fra terminal:
+Build and test from Terminal:
 
 ```zsh
 ./tools/build_local.zsh
 ./tools/test_local.zsh
 ```
 
-Start appen lokalt:
+Run locally:
 
 ```zsh
 ./tools/run_local.zsh
 ```
 
-## Git
+## Repository language policy
 
-Initialiser lokal git-historikk etter at mappen er lagt på riktig sted:
+Repository-facing and internationally reusable material should be written in English.
 
-```zsh
-./tools/bootstrap_git.zsh
-```
+Old Norse or Norse-derived terms are used only where they are part of the name, brand concept or linguistic explanation. Norwegian is used only where it is intentionally part of product, documentation or cultural context.
 
-Scriptet oppretter `main`, legger til prosjektfilene og forsøker å lage første commit. Det oppretter ikke remote og pusher ingenting.
+## Legal note
 
-## Prosjektstruktur
+Documentation and written repository pages are marked with a CC BY-NC-ND 4.0 footer. Source code licensing is not finalized by this footer.
 
-```text
-rista/
-├── Package.swift
-├── README.md
-├── Sources/
-│   ├── RistaApp/
-│   └── RistaCore/
-├── Tests/
-│   └── RistaCoreTests/
-├── docs/
-│   ├── 00_governance/
-│   ├── 01_product/
-│   ├── 02_architecture/
-│   └── 03_brand/
-├── reports/
-└── tools/
-```
+---
 
-## Navn og teknisk identitet
+© Tor-Ståle Hansen, https://github.com/TSHansen1971/rista
 
-Brukerrettet navn: `ᚼ Rísta`.
+CC BY-NC-ND 4.0
 
-Teknisk navn: `Rista`.
+Initial publication: 2026-06-23
 
-Dette gjør at produktet kan ha riktig visuell og språklig identitet i brukerflaten, samtidig som repo, bundle, filstier, scripts og tekniske metadata kan være ASCII-vennlige.
+Last modified: 2026-06-23

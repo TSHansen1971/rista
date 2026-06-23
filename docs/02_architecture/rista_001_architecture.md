@@ -1,21 +1,39 @@
-# RÍSTA-001 – Arkitektur
+# RISTA-001 – Architecture
 
-## Teknisk grunnform
+## Technical foundation
 
-Prosjektet er et Swift Package-basert macOS-appgrunnlag:
+The project is a Swift Package-based macOS app foundation:
 
-- `RistaApp`: brukerflate og macOS-appstart
-- `RistaCore`: dokumentmodell, markdown-normalisering og enkel blokkparser
-- `RistaCoreTests`: enhetstester for ren kjernefunksjonalitet
+- `RistaApp`: user interface and macOS app entry point
+- `RistaCore`: document model, Markdown normalization and basic block parsing
+- `RistaCoreTests`: unit tests for core behavior
 
-## Editorvalg
+## Editor choice
 
-Skriveflaten bruker `NSTextView` broet inn i SwiftUI. Det er valgt fordi en seriøs markdown-editor normalt trenger bedre tekstkontroll enn en enkel SwiftUI `TextEditor` gir.
+The writing surface uses `NSTextView` bridged into SwiftUI.
 
-## Previewvalg
+This is intentional. A serious Markdown editor normally needs stronger text editing control than a basic SwiftUI `TextEditor` can provide, especially for future work such as stable scrolling, selection behavior, syntax treatment, large documents and editor-specific affordances.
 
-Første preview er bevisst enkel og lokal. Den parser grunnleggende markdown-blokker og bruker SwiftUI-visning. Dette gjør første MVP avhengighetsfri og lett å kontrollere.
+## Preview choice
 
-## Fremtidige vurderinger
+The first preview implementation is deliberately local and simple. It parses basic Markdown blocks and renders them through SwiftUI views.
 
-Dersom preview senere skal støtte full CommonMark, tabeller, fotnoter eller avansert typografi, bør parser/rendering løftes ut som en egen beslutning.
+This keeps the first MVP dependency-light, inspectable and easy to reason about.
+
+## File model
+
+The primary document model is an ordinary text file. Rísta should not require a proprietary project format, database layer or hidden document container for normal Markdown editing.
+
+## Future architecture decisions
+
+Future support for full CommonMark, tables, footnotes, math, diagrams, syntax highlighting or advanced export should be introduced through separate, explicit decisions.
+
+---
+
+© Tor-Ståle Hansen, https://github.com/TSHansen1971/rista
+
+CC BY-NC-ND 4.0
+
+Initial publication: 2026-06-23
+
+Last modified: 2026-06-23

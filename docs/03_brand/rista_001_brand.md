@@ -1,19 +1,45 @@
-# ᚼ Rísta – navne- og merkegrunnlag
+# ᚼ Rísta – Name and Brand Foundation
 
-## Navn
+## Name
 
-Brukerrettet navn er `ᚼ Rísta`.
+The user-facing name is `ᚼ Rísta`.
 
-Teknisk navn er `Rista`.
+The technical ASCII-safe name is `Rista`.
 
-## Kort posisjonering
+## Short positioning
 
-Merkespråk, ren tekst, ingen friksjon.
+Mark language. Plain text. No friction.
 
-## Kort beskrivelse
+## Short description
 
-Skriv i ren tekst, se det ferdig formatert. Rísta gjør markdown til det det alltid skulle vært: tanke inn, struktur ut, uten at hendene forlater tastaturet.
+Write in plain text and see it rendered. Rísta makes Markdown what it was always meant to be: thought in, structure out, hands never leaving the keyboard.
 
-## Prinsipp
+## Product principle
 
-Rísta skal ikke være en tung tekstbehandler. Den skal være en presis arbeidsflate for åpne markdown-filer.
+Rísta should not become a heavy word processor. It should be a precise working surface for open Markdown files.
+
+## Name rationale
+
+`Rísta` is the Old Norse verb meaning to carve, cut or inscribe. It describes writing as the act of placing meaningful marks into a surface.
+
+That makes the name unusually precise for a Markdown editor. Markdown is not primarily about formatting text after the fact; it is about marking text while writing. A small sign becomes structure.
+
+## Symbol
+
+`ᚼ` is the Younger Futhark hagall rune. In the brand system it functions as an icon and heading-like mark, not as the spoken product name.
+
+The name spoken aloud is Rísta. The symbol is seen, like a mark.
+
+## Language rule
+
+English is the default language for repository-facing and international documentation. Norse terms remain only where they carry the name, brand concept or linguistic explanation. Norwegian is used only where intentionally required.
+
+---
+
+© Tor-Ståle Hansen, https://github.com/TSHansen1971/rista
+
+CC BY-NC-ND 4.0
+
+Initial publication: 2026-06-23
+
+Last modified: 2026-06-23
