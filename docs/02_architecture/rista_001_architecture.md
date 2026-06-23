@@ -4,7 +4,7 @@
 
 The project shall evolve from a Swift Package-based starter into a multi-platform Apple app foundation:
 
-- `RistaApp`: platform-specific app entry points and user interface adaptation for macOS 26+, iPad and iPhone
+- `RistaMac`: current macOS 26+ app surface. Future `RistaTouch` shall provide the iPad and iPhone app surface.
 - `RistaCore`: document model, Markdown normalization and basic block parsing
 - `RistaCoreTests`: unit tests for core behavior
 

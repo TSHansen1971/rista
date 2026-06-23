@@ -8,7 +8,7 @@ let package = Package(
         .macOS(.v14)
     ],
     products: [
-        .executable(name: "Rista", targets: ["RistaApp"]),
+        .executable(name: "Rista", targets: ["RistaMac"]),
         .library(name: "RistaCore", targets: ["RistaCore"])
     ],
     targets: [
@@ -16,7 +16,7 @@ let package = Package(
             name: "RistaCore"
         ),
         .executableTarget(
-            name: "RistaApp",
+            name: "RistaMac",
             dependencies: ["RistaCore"]
         ),
         .testTarget(
