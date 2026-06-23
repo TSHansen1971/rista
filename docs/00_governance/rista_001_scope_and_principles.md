@@ -22,7 +22,7 @@ The first phase shall not introduce:
 - AI features
 - embedded publishing platform
 - proprietary document format
-- Markdown Pro code, icons, screenshots, App Store text or visual identity
+- third-party proprietary source code, icons, screenshots, App Store text or visual identity
 - Rosetta or Intel compatibility as a design dependency
 
 ## Local development rule
