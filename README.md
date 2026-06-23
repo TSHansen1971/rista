@@ -1,6 +1,6 @@
 # ᚼ Rísta
 
-Rísta is an Apple Silicon-native macOS Markdown editor starter: write in plain text, see the document rendered live, and keep your work as ordinary open `.md` files.
+Rísta is an Apple-platform Markdown editor starter for macOS 26 and newer, iPad and iPhone: write in plain text, see the document rendered live, and keep your work as ordinary open `.md` files.
 
 The project is built around one principle: minimal distance between thought and text. Markdown is not treated as a toolbar-driven formatting layer, but as a direct writing method where small marks create visible structure.
 
@@ -8,14 +8,14 @@ This repository is an independent local development foundation for Rísta: an Ap
 
 ## Product position
 
-Apple Silicon-native macOS Markdown editor for plain text writing, live preview and open `.md` files.
+Apple-platform Markdown editor for plain text writing, live preview and open `.md` files. The Mac version targets macOS 26 and newer; iPad and iPhone are first-class platform targets, not later ports.
 
 ## MVP contract
 
 The first version is intentionally narrow. It establishes the local writing surface before export, advanced rendering and later WYSIWYG-oriented refinements:
 
 - open, edit and save ordinary `.md` and plain text files
-- editor on the left, live preview on the right
+- platform-adapted editor and live preview, including side-by-side layout where the device class supports it
 - basic Markdown rendering for headings, paragraphs, emphasis, lists, block quotes, code blocks and horizontal rules
 - local document ownership
 - no account

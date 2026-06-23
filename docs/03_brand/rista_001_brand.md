@@ -16,7 +16,7 @@ Write in plain text and see it rendered. Rísta makes Markdown what it was alway
 
 ## Product principle
 
-Rísta should not become a heavy word processor. It should be a precise working surface for open Markdown files.
+Rísta should not become a heavy word processor. It should be a precise writing surface for open Markdown files across Mac, iPad and iPhone.
 
 ## Name rationale
 

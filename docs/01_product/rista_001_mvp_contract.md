@@ -2,7 +2,7 @@
 
 ## First product goal
 
-The first MVP shall do one thing well: edit a Markdown file and show a rendered preview side by side.
+The first MVP shall do one thing well: edit a Markdown file and show a rendered preview through a platform-adapted interface. Side-by-side layout is the preferred Mac and large-screen iPad form, while compact iPhone layouts may separate editing and preview into an adapted flow.
 
 ## Minimum functions
 

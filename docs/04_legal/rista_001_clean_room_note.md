@@ -33,7 +33,7 @@ This includes:
 
 ## Product identity
 
-Rísta is an Apple Silicon-native macOS Markdown editor for plain text writing, live preview and open `.md` files.
+Rísta is an Apple-platform Markdown editor for plain text writing, live preview and open `.md` files. The Mac version targets macOS 26 and newer, while iPad and iPhone are first-class product targets.
 
 Its identity is based on the name Rísta, the ᚼ mark, native macOS behavior and a focused writing workflow.
 

@@ -2,17 +2,17 @@
 
 ## Technical foundation
 
-The project is a Swift Package-based macOS app foundation:
+The project shall evolve from a Swift Package-based starter into a multi-platform Apple app foundation:
 
-- `RistaApp`: user interface and macOS app entry point
+- `RistaApp`: platform-specific app entry points and user interface adaptation for macOS 26+, iPad and iPhone
 - `RistaCore`: document model, Markdown normalization and basic block parsing
 - `RistaCoreTests`: unit tests for core behavior
 
 ## Editor choice
 
-The writing surface uses `NSTextView` bridged into SwiftUI.
+The Mac writing surface may use `NSTextView` bridged into SwiftUI. iPad and iPhone require a separate platform-appropriate editor strategy.
 
-This is intentional. A serious Markdown editor normally needs stronger text editing control than a basic SwiftUI `TextEditor` can provide, especially for future work such as stable scrolling, selection behavior, syntax treatment, large documents and editor-specific affordances.
+This is intentional. A serious Markdown editor normally needs stronger text editing control than a basic SwiftUI `TextEditor` can provide, especially for future work such as stable scrolling, selection behavior, syntax treatment, large documents and editor-specific affordances. The shared editor model must therefore be separated from platform-specific text view implementations.
 
 ## Preview choice
 
