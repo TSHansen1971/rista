@@ -15,11 +15,51 @@ private enum RistaMacApplicationIcon {
 }
 
 
+private enum RistaMacAboutIdentity {
+    private static let fallbackVersion = "0.1"
+    private static let fallbackBuild = "1"
+
+    static var version: String {
+        nonEmptyBundleValue(for: "CFBundleShortVersionString") ?? fallbackVersion
+    }
+
+    static var build: String {
+        nonEmptyBundleValue(for: "CFBundleVersion") ?? fallbackBuild
+    }
+
+    static var versionLine: String {
+        "Versjon \(version) (\(build))"
+    }
+
+    static let copyrightText = "Copyright © 2026 Tor-Ståle Hansen.\nAlle rettigheter forbeholdes."
+
+    private static func nonEmptyBundleValue(for key: String) -> String? {
+        guard let value = Bundle.main.object(forInfoDictionaryKey: key) as? String else {
+            return nil
+        }
+
+        let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? nil : trimmed
+    }
+}
+
 private enum RistaMacAboutPanel {
     static func show() {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+
+        let copyrightText = NSAttributedString(
+            string: RistaMacAboutIdentity.copyrightText,
+            attributes: [
+                .font: NSFont.systemFont(ofSize: NSFont.smallSystemFontSize),
+                .paragraphStyle: paragraphStyle
+            ]
+        )
+
         var options: [NSApplication.AboutPanelOptionKey: Any] = [
             .applicationName: "Rísta",
-            .credits: NSAttributedString(string: "Merk språk, ren tekst, ingen friksjon.")
+            .applicationVersion: RistaMacAboutIdentity.versionLine,
+            .credits: copyrightText
         ]
 
         if let iconURL = Bundle.module.url(forResource: "RistaAppIcon", withExtension: "icns"),
@@ -31,6 +71,7 @@ private enum RistaMacAboutPanel {
         NSApp.orderFrontStandardAboutPanel(options: options)
     }
 }
+
 
 @main
 struct RistaMacApplication: App {
