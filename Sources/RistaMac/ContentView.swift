@@ -61,7 +61,7 @@ private struct HeaderView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text("Rísta")
                     .font(.headline)
-                Text("Merkespråk, ren tekst, ingen friksjon.")
+                Text(RistaL10n.string("app.subtitle"))
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

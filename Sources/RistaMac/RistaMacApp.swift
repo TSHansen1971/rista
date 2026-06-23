@@ -28,10 +28,10 @@ private enum RistaMacAboutIdentity {
     }
 
     static var versionLine: String {
-        "Versjon \(version) (\(build))"
+        RistaL10n.format("about.versionFormat", version, build)
     }
 
-    static let copyrightText = "Copyright © 2026 Tor-Ståle Hansen.\nAlle rettigheter forbeholdes."
+    static var copyrightText: String { RistaL10n.string("about.copyright") }
 
     private static func nonEmptyBundleValue(for key: String) -> String? {
         guard let value = Bundle.main.object(forInfoDictionaryKey: key) as? String else {
@@ -83,7 +83,7 @@ struct RistaMacApplication: App {
         }
         .commands {
             CommandGroup(replacing: .appInfo) {
-                Button("About Rísta") {
+                Button(RistaL10n.string("menu.aboutRista")) {
                     RistaMacAboutPanel.show()
                 }
             }

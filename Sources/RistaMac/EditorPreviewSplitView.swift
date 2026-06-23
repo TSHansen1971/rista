@@ -6,13 +6,13 @@ struct EditorPreviewSplitView: View {
     var body: some View {
         HSplitView {
             VStack(alignment: .leading, spacing: 0) {
-                PaneTitle(title: "Markdown", subtitle: "Ren tekst")
+                PaneTitle(title: RistaL10n.string("pane.markdown.title"), subtitle: RistaL10n.string("pane.markdown.subtitle"))
                 MarkdownTextView(text: $text)
             }
             .frame(minWidth: 360)
 
             VStack(alignment: .leading, spacing: 0) {
-                PaneTitle(title: "Forhåndsvisning", subtitle: "Formatert dokument")
+                PaneTitle(title: RistaL10n.string("pane.preview.title"), subtitle: RistaL10n.string("pane.preview.subtitle"))
                 MarkdownPreviewView(markdown: text)
             }
             .frame(minWidth: 360)

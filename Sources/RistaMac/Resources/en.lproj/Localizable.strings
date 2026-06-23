@@ -1,0 +1,13 @@
+"app.subtitle" = "Markup, plain text, no friction.";
+
+"pane.markdown.title" = "Markdown";
+"pane.markdown.subtitle" = "Plain text";
+"pane.preview.title" = "Preview";
+"pane.preview.subtitle" = "Formatted document";
+
+"preview.empty" = "The preview appears here as you type.";
+
+"about.versionFormat" = "Version %@ (%@)";
+"about.copyright" = "Copyright © 2026 Tor-Ståle Hansen.\nAll rights reserved.";
+
+"menu.aboutRista" = "About Rísta";

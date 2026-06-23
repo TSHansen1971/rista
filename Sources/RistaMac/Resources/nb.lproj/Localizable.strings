@@ -1,0 +1,13 @@
+"app.subtitle" = "Merkespråk, ren tekst, ingen friksjon.";
+
+"pane.markdown.title" = "Markdown";
+"pane.markdown.subtitle" = "Ren tekst";
+"pane.preview.title" = "Forhåndsvisning";
+"pane.preview.subtitle" = "Formatert dokument";
+
+"preview.empty" = "Forhåndsvisningen vises her når du skriver.";
+
+"about.versionFormat" = "Versjon %@ (%@)";
+"about.copyright" = "Copyright © 2026 Tor-Ståle Hansen.\nAlle rettigheter forbeholdes.";
+
+"menu.aboutRista" = "Om Rísta";

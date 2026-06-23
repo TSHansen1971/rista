@@ -12,7 +12,7 @@ struct MarkdownPreviewView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
                 if blocks.isEmpty {
-                    Text("Forhåndsvisningen vises her når du skriver.")
+                    Text(RistaL10n.string("preview.empty"))
                         .foregroundStyle(.secondary)
                 } else {
                     ForEach(Array(blocks.enumerated()), id: \.offset) { _, block in
