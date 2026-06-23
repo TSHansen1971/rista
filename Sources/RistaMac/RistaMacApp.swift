@@ -78,7 +78,7 @@ struct RistaMacApplication: App {
     @NSApplicationDelegateAdaptor(RistaMacApplicationDelegate.self) private var appDelegate
 
     var body: some Scene {
-        DocumentGroup(newDocument: RistaDocument()) { file in
+        DocumentGroup(newDocument: RistaDocument(text: RistaL10n.string("document.defaultText"))) { file in
             ContentView(document: file.$document)
         }
         .commands {

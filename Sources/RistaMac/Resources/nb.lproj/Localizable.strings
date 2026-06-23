@@ -11,3 +11,5 @@
 "about.copyright" = "Copyright © 2026 Tor-Ståle Hansen.\nAlle rettigheter forbeholdes.";
 
 "menu.aboutRista" = "Om Rísta";
+
+"document.defaultText" = "# Nytt dokument\n\nSkriv markdown her.\n";
